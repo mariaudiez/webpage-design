@@ -60,6 +60,11 @@ main {
 	padding: 2rem 0;
 }
 
+.galeria {
+	display: flex;
+	flex-wrap: wrap;
+	
+}
 /* Header */
 header {
 	background: #f8f9fa;
