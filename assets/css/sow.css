@@ -1,0 +1,45 @@
+:root {
+  --white: #f7f8f9;
+}
+
+header nav ul {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+html {
+  background-color: lightgray;
+}
+
+body {
+  position: relative;
+  min-height: 100vh;
+  overflow: visible;
+}
+
+header {
+  background-color: var(--white);
+  padding: 12px;
+  margin: 8px;
+  border-radius: 25px;
+}
+
+.item {
+  visibility: hidden;
+}
+
+.title {
+  position: absolute;
+  top: 50vh;
+  left: 50vw;
+  transform: translate(-50%, -50%);
+  width: 100vw;
+  text-align: center;
+  font-size: 45px;
+}
