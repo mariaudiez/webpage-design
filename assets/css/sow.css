@@ -21,6 +21,7 @@ body {
   position: relative;
   min-height: 100vh;
   overflow: visible;
+  overflow-x: hidden;
 }
 
 header {
@@ -42,4 +43,69 @@ header {
   width: 100vw;
   text-align: center;
   font-size: 45px;
+  transition: all 1s ease-in-out;
+}
+
+.title.active {
+  top: 1vh;
+  transform: translate(-50%, 0%);
+  font-size: 15px;
+}
+
+.marquee_container {
+  display: flex;
+  gap: 32px;
+  overflow-x: visible;
+  animation: marquee 5s linear infinite;
+}
+
+.marquee_container > h2 {
+  font-size: 20px;
+  text-wrap: nowrap;
+  overflow: visible;
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0%);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.web-cards {
+  height: 90vh;
+}
+
+.web-card {
+  border-bottom: 1px solid rgb(121, 3, 3);
+  height: 25%;
+  background-color: var(--white);
+  position: relative;
+  overflow: visible;
+}
+
+.web-card-title {
+  width: fit-content;
+
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: left 0.3s ease-in-out;
+}
+
+.web-card-title.active {
+  left: 60%;
+}
+
+.web-card-title > h2 {
+  font-size: 200;
+  color: rgb(121, 3, 3);
+}
+
+.web-card-title > p {
+  font-size: 150px;
+
+  color: rgb(121, 3, 3);
 }
