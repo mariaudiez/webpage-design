@@ -1,16 +1,16 @@
 :root {
+  font-size: 16px;
+
   --white: #f7f8f9;
 }
 
-header nav ul {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
+* {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  box-sizing: border-box;
 
-a {
-  text-decoration: none;
-  color: inherit;
+  font-family: Helvetica, sans-serif;
 }
 
 html {
@@ -21,18 +21,46 @@ body {
   position: relative;
   min-height: 100vh;
   overflow: visible;
-  overflow-x: hidden;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
 }
 
 header {
   background-color: var(--white);
   padding: 12px;
-  margin: 8px;
-  border-radius: 25px;
+  margin: 10px;
+  border-radius: 30px;
+  overflow: visible;
+}
+
+header nav ul {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.white-cover {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #f7f8f9;
+  z-index: 9;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+  pointer-events: none;
+}
+
+.white-cover.active {
+  opacity: 0;
 }
 
 .item {
-  visibility: hidden;
+  visibility: visible;
 }
 
 .title {
@@ -43,13 +71,23 @@ header {
   width: 100vw;
   text-align: center;
   font-size: 45px;
-  transition: all 1s ease-in-out;
+  transition: transform 1s ease-in-out, top 1s ease-in-out,
+    font-size 1s ease-in-out;
+  z-index: 10;
 }
 
 .title.active {
   top: 1vh;
   transform: translate(-50%, 0%);
   font-size: 15px;
+}
+
+.invisible {
+  visibility: hidden;
+}
+
+.hidden {
+  display: none;
 }
 
 .marquee_container {
@@ -86,6 +124,22 @@ header {
   overflow: visible;
 }
 
+.card-img {
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  transition: left 0.3s ease-in-out;
+}
+
+.card-img.active {
+  left: 0;
+}
+
+.card-img > img {
+  width: 100%;
+}
+
 .web-card-title {
   width: fit-content;
 
@@ -100,12 +154,86 @@ header {
 }
 
 .web-card-title > h2 {
-  font-size: 200;
+  font-size: 200px;
   color: rgb(121, 3, 3);
 }
 
 .web-card-title > p {
   font-size: 150px;
-
   color: rgb(121, 3, 3);
 }
+
+@media screen and (width > 1200px) {
+  .web-cards {
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+
+  .web-card {
+    border-bottom: none;
+    /* border-left: 1px solid red; */
+    height: 100%;
+    overflow-x: hidden;
+  }
+
+  .card-img {
+    height: 100%;
+    width: 100%;
+    left: -25vw;
+    transition: left 0.3s ease-in-out;
+  }
+
+  .card-img.active {
+    left: 0;
+  }
+
+  .web-card-title {
+    bottom: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 150px 32px 100px 32px;
+  }
+
+  .web-card-title > h2 {
+    font-size: 64px;
+  }
+
+  .web-card-title > p {
+    font-size: 400px;
+  }
+
+  .web-card-title.active {
+    bottom: 0;
+    left: 0;
+  }
+
+  header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: transparent;
+    padding: 12px;
+    margin: 8px;
+    border-radius: 8px;
+    overflow: visible;
+    z-index: 8;
+  }
+
+  header nav ul {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  header.active {
+    background-color: red;
+  }
+}
+/* No necesitas agregar ningún valor específico aquí.
+La sección @media screen and (width > 1200px) ya contiene las reglas necesarias para estilos responsivos.
+Si tu página se queda en blanco, asegúrate de que el HTML tenga contenido y que el CSS esté correctamente enlazado.
+Verifica también que no haya errores en la consola del navegador.

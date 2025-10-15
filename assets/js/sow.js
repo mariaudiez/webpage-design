@@ -15,6 +15,14 @@ document.addEventListener("DOMContentLoaded", function () {
       });
       let title = card.querySelector(".web-card-title");
       title.classList.add("active");
+
+      const cardImages = document.querySelectorAll(".card-img");
+
+      cardImages.forEach(function (img) {
+        img.classList.remove("active");
+      });
+      const img = card.querySelector(".card-img");
+      img.classList.add("active");
     });
   });
 });
