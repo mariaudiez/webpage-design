@@ -12,9 +12,13 @@ document.addEventListener("DOMContentLoaded", function () {
       webCards.forEach(function (card) {
         let title = card.querySelector(".web-card-title");
         title.classList.remove("active");
+        // let background = card.querySelector(".white-cover");
+        // background.classList.remove("active");
       });
       let title = card.querySelector(".web-card-title");
       title.classList.add("active");
+      // let background = card.querySelector(".white-cover");
+      // background.classList.add("active");
 
       const cardImages = document.querySelectorAll(".card-img");
 

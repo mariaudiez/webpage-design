@@ -30,9 +30,9 @@ a {
 
 header {
   background-color: var(--white);
-  padding: 12px;
+  padding: 25px;
   margin: 10px;
-  border-radius: 30px;
+  border-radius: 400px;
   overflow: visible;
 }
 
@@ -138,6 +138,7 @@ header nav ul {
 
 .card-img > img {
   width: 100%;
+  height: 100%;
 }
 
 .web-card-title {
@@ -154,16 +155,60 @@ header nav ul {
 }
 
 .web-card-title > h2 {
-  font-size: 200px;
+  font-size: 15px;
   color: rgb(121, 3, 3);
 }
 
 .web-card-title > p {
-  font-size: 150px;
+  font-size: 15px;
   color: rgb(121, 3, 3);
 }
 
 @media screen and (width > 1200px) {
+
+
+
+  
+
+  .item {
+    height: fit-content;
+    width: fit-content;
+    padding: 20px 5px 5px 15px;  }
+
+  header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: red;
+    padding: 5px;
+    margin: 5px;
+    border-radius: 500px;
+    overflow: visible;
+    z-index: 8;
+  }
+
+  header nav ul {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: fit-content;
+    overflow: hidden;
+    padding: auto;
+  }
+
+  header.active {
+    background-color: red;
+  }
+}
+
+  .title.active {
+  top: 1vh;
+  transform: translate(-50%, 0%);
+  font-size: 0.2re;
+}
+ 
+
   .web-cards {
     height: 100vh;
     display: grid;
@@ -182,6 +227,7 @@ header nav ul {
     width: 100%;
     left: -25vw;
     transition: left 0.3s ease-in-out;
+    overflow-y: hidden;
   }
 
   .card-img.active {
@@ -194,15 +240,17 @@ header nav ul {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    padding: 150px 32px 100px 32px;
+    padding: 100px 32px 100px 32px;
   }
 
   .web-card-title > h2 {
-    font-size: 64px;
+    font-size: 60px;
   }
 
   .web-card-title > p {
-    font-size: 400px;
+    font-size: 300px;
+    overflow-y: hidden;
+    
   }
 
   .web-card-title.active {
@@ -210,29 +258,7 @@ header nav ul {
     left: 0;
   }
 
-  header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    background-color: transparent;
-    padding: 12px;
-    margin: 8px;
-    border-radius: 8px;
-    overflow: visible;
-    z-index: 8;
-  }
-
-  header nav ul {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-
-  header.active {
-    background-color: red;
-  }
-}
+  
 /* No necesitas agregar ningún valor específico aquí.
 La sección @media screen and (width > 1200px) ya contiene las reglas necesarias para estilos responsivos.
 Si tu página se queda en blanco, asegúrate de que el HTML tenga contenido y que el CSS esté correctamente enlazado.
